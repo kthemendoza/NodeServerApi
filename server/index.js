@@ -29,7 +29,7 @@ app.use(testMiddelware);
 
 
 //Esto es pa que no se dañe los otros
-app.get(('/'), (req, res, next) => {
+app.get(('/middelware'), (req, res, next) => {
   res.send(`Servidor corriendo`);
   });
 
@@ -55,6 +55,6 @@ app.post('/about22', function (req, res) {
   res.send('Got a POST request');
 });
 
-app.listen(3000, function () {
-console.log(`Server running at port ${PORT}`);
-});
+// app.listen(PORT, function () {
+// console.log(`Server running at port ${PORT}`);
+// });
