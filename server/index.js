@@ -1,10 +1,28 @@
 var express = require('express');
 var app = express();
 const PORT = 3000;
-app.get('/', function (req, res) {
-    // res.send('Hola mundo desde el sena');
-    res.render('index' , {title:'Prueba' , mensaje:'Template Pug'});
+
+// ↓ TEMPLATE: GET
+app.get('/templates', function (req, res) {
+    res.render('index' , {
+        title:'Pug templates',
+        mensaje:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus.',
+        vegetables: [
+            "carrot",
+            "potato",
+            "beet"
+        ]
+    });
 });
+
+// ↓ TEMPLATE :POST
+app.post('/templatepost', function (req, res) {
+    res.render('index' , {
+        title:'Post view',
+        mensaje:'Mensaje post view',
+    });
+});
+
 app.listen(3000, function () {
     console.log(`Server running at port ${PORT}`);
 });
