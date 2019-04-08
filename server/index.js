@@ -17,7 +17,7 @@ app.get('/templates', function (req, res) {
 
 // ↓ TEMPLATE :POST
 app.post('/templatepost', function (req, res) {
-    res.render('index' , {
+    res.render('templatepost' , {
         title:'Post view',
         mensaje:'Mensaje post view',
     });
