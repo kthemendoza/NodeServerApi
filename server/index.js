@@ -2,6 +2,15 @@ var express = require('express');
 var app = express();
 const PORT = 3000;
 
+app.listen(3000, function () {
+  console.log(`Server running at port ${PORT}`);
+});
+
+app.get('/', function (req, res) {
+  res.send('Hola Dani');
+  console.log(req.headers);
+});
+
 // ↓ TEMPLATE: GET
 app.get('/templates', function (req, res) {
     res.render('index' , {
@@ -23,9 +32,6 @@ app.post('/templatepost', function (req, res) {
     });
 });
 
-app.listen(3000, function () {
-    console.log(`Server running at port ${PORT}`);
-});
 app.set(
     'view engine' ,'pug',
 )
@@ -62,17 +68,8 @@ app.use(testMiddelware);
 //Esto es pa que no se dañe los otros
 app.get(('/middelware'), (req, res, next) => {
   res.send(`Servidor corriendo`);
-  });
-
-
-app.listen(PORT, () => {
-    console.log(`Server running at port ${PORT}`);
-  });
-  
-app.get('/', function (req, res) {
-  res.send('Hola Dani');
-  console.log(req.headers);
 });
+
 
 app.get('/daniDos', function (req, res) {
   res.send('Hola Dani2');
