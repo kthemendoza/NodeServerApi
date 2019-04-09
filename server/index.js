@@ -19,7 +19,9 @@ app.get('/templates', function (req, res) {
         vegetables: [
             "carrot",
             "potato",
-            "beet"
+            "beet",
+            "apple",
+            "orange",
         ]
     });
 });
@@ -28,7 +30,7 @@ app.get('/templates', function (req, res) {
 app.post('/templatepost', function (req, res) {
     res.render('templatepost' , {
         title:'Post view',
-        mensaje:'Mensaje post view',
+        mensaje:'Mensaje post view'
     });
 });
 
@@ -39,7 +41,7 @@ app.set(
     'views', './views'
 )
 // ↑↑ END TEMPLATES 
-let estaLogueado = () => false;
+let estaLogueado = () => true;
 let testMiddelware =  ( (req, res, next) =>{
   if( estaLogueado() ) {
     res.send(`!-- USTED FUE AUTORIZADO --!   
@@ -61,8 +63,6 @@ let testMiddelware =  ( (req, res, next) =>{
   }
 });
 
-
-app.use(testMiddelware);
 
 
 //Esto es pa que no se dañe los otros
@@ -106,5 +106,4 @@ var connection = mysql.createConnection({
 
 //sconnection.end()
 
-
-
+app.use(testMiddelware);
